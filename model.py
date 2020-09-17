@@ -18,8 +18,6 @@ with open('in.txt', newline='') as f:
         environment.append(rowlist)
 
 
-
-
 num_of_agents = 10
 num_of_iterations = 100
 agents = []
@@ -31,6 +29,8 @@ for i in range(num_of_agents):
 
 # Move the agents.
 for j in range(num_of_iterations):
+    # shuffling agents for each iteration
+    random.shuffle(agents)
     for i in range(num_of_agents):
        agents[i].move()
        agents[i].eat()
