@@ -27,7 +27,7 @@ agents = []
 
 # Make the agents.
 for i in range(num_of_agents):
-    agents.append(agentframework.Agent(environment))
+    agents.append(agentframework.Agent(environment, agents))
 
 # Move the agents.
 for j in range(num_of_iterations):

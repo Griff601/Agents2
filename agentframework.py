@@ -1,11 +1,14 @@
 import random
 
 class Agent:
-    def __init__(self, environment):
+    def __init__(self, environment, agents):
         self.x = random.randint(0,99)
         self.y = random.randint(0,99)
         self.environment = environment
+        self.agents = agents
         self.store = 0
+        for agent in agents:
+            print(agent.x, agent.y)
     def move(self): 
         if random.random() < 0.5:
             self.x = (self.x + 1) % 100
