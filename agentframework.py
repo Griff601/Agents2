@@ -29,7 +29,9 @@ class Agent:
         
         # Loop through the agents in self.agents .
         for agent in self.agents:
-            
+            if self == agent:
+                # discounting self agent in loop
+                continue
             # Calculate the distance between self and the current other agent:
             distance = self.distance_between(agent)
             # If distance is less than or equal to the neighbourhood
