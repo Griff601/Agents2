@@ -4,6 +4,7 @@ import matplotlib.pyplot
 import agentframework
 import csv
 import matplotlib
+import sys
 
 
 
@@ -16,12 +17,15 @@ with open('in.txt', newline='') as f:
             rowlist.append(value)
             
         environment.append(rowlist)
-
-
-num_of_agents = 10
-num_of_iterations = 100
+# changed values of elements below to numbers contained in the argv list
+num_of_agents = sys.argv[1]
+num_of_iterations = sys.argv[2]
+neighbourhood = sys.argv[3]
 agents = []
-neighbourhood = 20
+print("the number of agents is", num_of_agents)
+print("the number of iterations is", num_of_iterations)
+print("the number of neighbourhood is", neighbourhood)
+
 
 # Make the agents.
 for i in range(num_of_agents):
