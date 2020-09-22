@@ -9,9 +9,11 @@ import sys
 
 
 # Open the in.txt file with the CSV data so that it can be used by the Agents
-
+# once .txt is imported, the data is looped into a 2D grid rather than being
+# a long list. 
 with open('in.txt', newline='') as f:
     reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
+    # create environment list
     environment = []
     for row in reader:
         rowlist = []
@@ -19,6 +21,7 @@ with open('in.txt', newline='') as f:
             rowlist.append(value)
             
         environment.append(rowlist)
+        
 # changed values of elements below to numbers contained in the argv list
 num_of_agents = sys.argv[1]
 num_of_iterations = sys.argv[2]

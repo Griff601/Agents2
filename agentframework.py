@@ -1,7 +1,7 @@
 import random
 
 # creates agent, definesthe agent as self and uses randomised integers for
-# y and x. 
+# y and x. Defining agent with an innit method. 
 class Agent:
     def __init__(self, environment, agents):
         self.x = random.randint(0,99)
@@ -11,7 +11,7 @@ class Agent:
         self.store = 0
         for agent in agents:
             print(agent.x, agent.y)
-    # next section moves the agent randomly
+    # next section moves method within the agent.
     def move(self): 
         if random.random() < 0.5:
             self.x = (self.x + 1) % 100
@@ -30,7 +30,8 @@ class Agent:
             self.environment[self.y][self.x] -= 10
             self.store += 10
     
-    # this shares the agent with the other agents in the environment
+    # this shares the agent with the other agents in the environment so they
+    # can communicate with each other.
     def share_with_neighbours(self, neighbourhood):
         
         # Loop through the agents in self.agents .
