@@ -1,5 +1,7 @@
 import random
 
+# creates agent, definesthe agent as self and uses randomised integers for
+# y and x. 
 class Agent:
     def __init__(self, environment, agents):
         self.x = random.randint(0,99)
@@ -9,6 +11,7 @@ class Agent:
         self.store = 0
         for agent in agents:
             print(agent.x, agent.y)
+    # next section moves the agent randomly
     def move(self): 
         if random.random() < 0.5:
             self.x = (self.x + 1) % 100
@@ -20,11 +23,14 @@ class Agent:
         else:
             self.y = (self.y - 1) % 100
     
-    def eat(self): # can you make it eat what is left?
+    # this section tells the agent to eat the remining data if the value is
+    # more than 10
+    def eat(self): 
         if self.environment[self.y][self.x] > 10:
             self.environment[self.y][self.x] -= 10
             self.store += 10
     
+    # this shares the agent with the other agents in the environment
     def share_with_neighbours(self, neighbourhood):
         
         # Loop through the agents in self.agents .
@@ -50,10 +56,11 @@ class Agent:
         # End loop
                 
     
-    
+    # using pythogoras, this section works out the distance between each agent
     def distance_between(self, other_agent):
         return (((self.x - other_agent.x)**2) +
                 ((self.y - other_agent.y)**2))**0.5
+
 
     @property
     def x(self):
